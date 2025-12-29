@@ -1,0 +1,16 @@
+<div th:fragment="mensajes(mensajes)">
+    <form th:each="m : ${mensajes}" th:action="@{/mensajes/nuevo/{id}(id=${m.idTema})}" method="get">
+        <div th:insert="~{fragments/mensaje :: mostrar(${m})}"></div>
+        <input type="hidden" th:value="${m.id}" name=""idPadre>
+        <button type="submit">Responder</button><br><br><br>
+    
+    </form>
+
+</div>
+
+<div th:fragment="mostrar(mensaje)">
+
+    <a th:href="@{/mensajes/{id}(id=${mensaje.id})}" th:utext="|<b>${mensaje.fecha}<b|>"></a><br>
+        <div th:utext="|<i>${mensaje.cotenido}<i>|"></div>
+
+</div>

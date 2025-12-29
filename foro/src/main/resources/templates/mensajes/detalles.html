@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1 th:utext="| <i>${m.fecha}<i>|"></h1>
+    <div th:text="${m.contenido}"></div>
+
+    <div th:insert="~{fragment/mensaje :: mensajes(${mensajes})}"></div>
+
+    <a th:if="${m.idPadre} != null" th:href="@{/mensajes/{id}(id=${m.idPadre})}">Volver</a>
+    <a th:if="${m.idTema} != null" th:href="@{/temas/{id}(id=${m.idTema})}"></a>
+
+
+</body>
+</html>

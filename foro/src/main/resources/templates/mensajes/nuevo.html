@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <h1>FORMULARIO - NUEVO MENSAJE</h1>
+
+    <form th:action="@{/mesajes/nuevo{idTema}(idTema=${{m.idTema}})}" method="post" th:object="${m}">
+
+        <input type="hidden" th:field="*{idPadre}">
+        <input type="hidden" th:field="*{idTema}">
+
+        <label >Mensaje:</label><br>
+        <textarea th:field="*{contenido}"></textarea>
+
+        <br><br><button th:href="@{/mensajes/nuevo/{idTema}(idTema=${idTema})}">Enviar</button>
+    </form>
+
+    <br><br><a th:href="@{/temas/{idTema}(idTema=${idTema})}">Volver</a>
+
+</body>
+</html>
